@@ -1,4 +1,5 @@
 # Vara Icon Theme
+![ss](https://raw.githubusercontent.com/sira313/vara-icon-theme/refs/heads/main/Screenshots/ss.png)
 Vara? Gak tau artinya apaan, bingung aja kasi nama. Vara mungkin variabel, karna pake variabel `primary` dan `secondary` untuk ubah warna `*.svg`.
 
 ## Sebelum Install
@@ -22,3 +23,7 @@ Trus jalanin
 Copy paste warna hex yang kalian mau.
 Lokasi installasi di ~/.local/share/icons/Vara
 > Udah gitu aja.
+
+Credit:
+- [Tokyo Night Icons](https://github.com/ljmill/tokyo-night-icons) base project
+- [Feathericons](https://feathericons.com/) for symbol
