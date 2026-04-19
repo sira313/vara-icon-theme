@@ -24,6 +24,11 @@ Copy paste warna hex yang kalian mau.
 Lokasi installasi di ~/.local/share/icons/Vara
 > Udah gitu aja.
 
+## Notes
+Masih WIP (ngerjainnya tergantung mood).
+
+Saat ini baru kelar `places` sama sebagian `action` aja.
+
 Credit:
 - [Tokyo Night Icons](https://github.com/ljmill/tokyo-night-icons) base project
 - [Feathericons](https://feathericons.com/) for symbol
