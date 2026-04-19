@@ -19,7 +19,7 @@ if [[ -d "$TARGET_DIR" ]]; then
 else
     echo "=> Direktori Vara belum ada. Membuat struktur direktori..."
     
-    # Membuat dir tree dengan brace expansion (lebih efisien)
+    # Membuat dir tree
     mkdir -p "$TARGET_DIR/scalable/"{actions,apps,categories,devices,emblems,emotes,mimetypes,places,status}
     mkdir -p "$TARGET_DIR/symbolic/"{actions,apps,categories,devices,emblems,emotes,mimetypes,places,status}
     
@@ -32,7 +32,6 @@ else
     
     echo "=> Menyalin direktori symbolic..."
     if [[ -d "$PROJECT_DIR/icons/symbolic" ]]; then
-        # Menggunakan /. di akhir source untuk copy & merge seluruh isi folder ke target
         cp -a "$PROJECT_DIR/icons/symbolic/." "$TARGET_DIR/symbolic/"
     fi
     
@@ -52,7 +51,7 @@ echo "Contoh input: #1e1e2e, #89b4fa, atau nama warna seperti black, blue."
 read -p "Masukkan warna Primary   : " COLOR_PRIMARY
 read -p "Masukkan warna Secondary : " COLOR_SECONDARY
 
-# Validasi sederhana: pastikan input tidak kosong
+# Validasi
 if [[ -z "$COLOR_PRIMARY" || -z "$COLOR_SECONDARY" ]]; then
     echo "Error: Warna Primary dan Secondary tidak boleh kosong!"
     exit 1
@@ -61,7 +60,7 @@ fi
 SRC_PLACES="$PROJECT_DIR/icons/scalable/places"
 DEST_PLACES="$TARGET_DIR/scalable/places"
 
-# Memastikan folder target places tersedia (jaga-jaga jika folder target dibuat manual sebelumnya)
+# Memastikan folder target places tersedia
 mkdir -p "$DEST_PLACES"
 
 if [[ ! -d "$SRC_PLACES" ]]; then
@@ -71,12 +70,12 @@ fi
 
 echo -e "\n=> Mulai generate warna untuk icon SVG..."
 
-# Menghitung jumlah file untuk log sederhana
+# Menghitung jumlah file untuk log
 count=0
 
 # Loop untuk memproses setiap file .svg di dalam folder places
 for svg_file in "$SRC_PLACES"/*.svg; do
-    # Skip jika tidak ada file svg yang ditemukan (glob failed)
+    # Skip jika tidak ada file svg yang ditemukan
     [[ -e "$svg_file" ]] || continue
     
     filename=$(basename "$svg_file")
@@ -102,7 +101,7 @@ if command -v gtk-update-icon-cache &> /dev/null; then
     echo "=> Icon cache berhasil diperbarui. Perubahan seharusnya sudah langsung aktif."
 else
     echo "=> Peringatan: 'gtk-update-icon-cache' tidak ditemukan."
-    echo "=> Perubahan mungkin baru terlihat setelah kamu restart file manager / Niri WM."
+    echo "=> Perubahan mungkin baru terlihat setelah kamu restart file manager. Atau mungkin ganti icon lain dulu lalu balik lagi ke icon Vara."
 fi
 
 echo -e "\nSelesai! 🎉"
